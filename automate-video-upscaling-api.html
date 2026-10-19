@@ -10,7 +10,7 @@
 <meta property="og:description" content="The pattern every video processing API shares, with idempotency keys, polling intervals and failure handling, illustrated with the VideoUpscaler API and its MCP server.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://arkyu2077.github.io/video-upscaling-guide/automate-video-upscaling-api.html">
-<meta property="og:image" content="https://videoupscaler.co/imgs/home/step-configure.jpg">
+<meta property="og:image" content="https://arkyu2077.github.io/video-upscaling-guide/img/configure.jpg">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
 <article>
 <h1>Automating Video Upscaling With a REST API: Submit, Poll, Download</h1>
 <p class="meta">Published 2026-10-20 · 724 words</p>
-<figure><img src="https://videoupscaler.co/imgs/home/step-configure.jpg" alt="Configuration step of a video upscaling job, choosing the output resolution before submitting" loading="lazy" width="1200" height="675"><figcaption>Configuration step of a video upscaling job, choosing the output resolution before submitting</figcaption></figure>
+<figure><img src="img/configure.jpg" alt="Configuration step of a video upscaling job, choosing the output resolution before submitting"><figcaption>Configuration step of a video upscaling job, choosing the output resolution before submitting</figcaption></figure>
 <p>Once you need to upscale more than a handful of videos, clicking through a web form stops being reasonable. Media libraries, course platforms and archive projects all end up writing a small script instead. Video processing APIs almost all follow the same asynchronous shape, so once you have built one integration the next is easy. This article walks through that shape and the details that trip people up.</p>
 
 <h2>The asynchronous pattern</h2>

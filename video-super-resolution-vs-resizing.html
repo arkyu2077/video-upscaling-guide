@@ -10,7 +10,7 @@
 <meta property="og:description" content="Resizing and super resolution both produce a bigger frame, but only one adds detail. A plain-language explanation of how VSR uses neighbouring frames, and when it is worth it.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://arkyu2077.github.io/video-upscaling-guide/video-super-resolution-vs-resizing.html">
-<meta property="og:image" content="https://videoupscaler.co/imgs/vsr/bicubic-vs-vsr.jpg">
+<meta property="og:image" content="https://arkyu2077.github.io/video-upscaling-guide/img/bicubic-vs-vsr.jpg">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
 <article>
 <h1>Video Super Resolution vs Resizing: What Actually Changes in the Frame</h1>
 <p class="meta">Published 2026-10-20 · 684 words</p>
-<figure><img src="https://videoupscaler.co/imgs/vsr/bicubic-vs-vsr.jpg" alt="Side-by-side crop comparing a bicubic resize with a video super resolution result on the same frame" loading="lazy" width="1200" height="675"><figcaption>Side-by-side crop comparing a bicubic resize with a video super resolution result on the same frame</figcaption></figure>
+<figure><img src="img/bicubic-vs-vsr.jpg" alt="Side-by-side crop comparing a bicubic resize with a video super resolution result on the same frame"><figcaption>Side-by-side crop comparing a bicubic resize with a video super resolution result on the same frame</figcaption></figure>
 <p>Every video player can show a 720p file on a 4K screen. It does that by resizing: each original pixel is spread across several screen pixels, with some smoothing so the result does not look like a mosaic. The frame gets bigger, but no information is added. Video super resolution, usually shortened to VSR, is a different operation: it tries to reconstruct the detail that a larger frame should contain. Understanding the difference tells you when upscaling is worth doing at all.</p>
 
 <h2>What resizing does</h2>
