@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Video Super Resolution vs Resizing: What Actually Changes in the Frame</title>
+<meta name="description" content="Resizing and super resolution both produce a bigger frame, but only one adds detail. A plain-language explanation of how VSR uses neighbouring frames, and when it is worth it.">
+<link rel="canonical" href="https://arkyu2077.github.io/video-upscaling-guide/video-super-resolution-vs-resizing.html">
+<meta property="og:title" content="Video Super Resolution vs Resizing: What Actually Changes in the Frame">
+<meta property="og:description" content="Resizing and super resolution both produce a bigger frame, but only one adds detail. A plain-language explanation of how VSR uses neighbouring frames, and when it is worth it.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://arkyu2077.github.io/video-upscaling-guide/video-super-resolution-vs-resizing.html">
+<meta property="og:image" content="https://videoupscaler.co/imgs/vsr/bicubic-vs-vsr.jpg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="index.html">Video Upscaling Handbook</a><nav><a href="index.html">All guides</a></nav></div></header>
+<main><div class="wrap">
+<article>
+<h1>Video Super Resolution vs Resizing: What Actually Changes in the Frame</h1>
+<p class="meta">Published 2026-10-20 · 684 words</p>
+<figure><img src="https://videoupscaler.co/imgs/vsr/bicubic-vs-vsr.jpg" alt="Side-by-side crop comparing a bicubic resize with a video super resolution result on the same frame" loading="lazy" width="1200" height="675"><figcaption>Side-by-side crop comparing a bicubic resize with a video super resolution result on the same frame</figcaption></figure>
+<p>Every video player can show a 720p file on a 4K screen. It does that by resizing: each original pixel is spread across several screen pixels, with some smoothing so the result does not look like a mosaic. The frame gets bigger, but no information is added. Video super resolution, usually shortened to VSR, is a different operation: it tries to reconstruct the detail that a larger frame should contain. Understanding the difference tells you when upscaling is worth doing at all.</p>
+
+<h2>What resizing does</h2>
+<p>Resizing algorithms such as bilinear and bicubic interpolation compute each new pixel as a weighted average of the nearby original pixels. Bicubic uses a slightly wider neighbourhood and a curve instead of a straight line, which keeps edges a little crisper. Either way, the output is a mathematically smooth blend of what was already there. A thin power line that was one pixel wide at 720p becomes a soft, three-pixel-wide smear at 4K. Text that was unreadable stays unreadable, just bigger.</p>
+<p>This is not a flaw. Resizing is fast, predictable and never invents anything, which is exactly what you want for playback. It is simply the wrong tool when the goal is a sharper picture.</p>
+
+<h2>What super resolution does</h2>
+<p>A super resolution model is trained on pairs of low-resolution and high-resolution footage. From millions of examples it learns what hair, brick, grass, skin and lettering look like at full resolution and how they degrade when downscaled and compressed. At inference time it takes the small frame and produces a larger one that is consistent with the input and with that learned prior.</p>
+<p>The video-specific part is temporal. Image upscalers treat every frame alone, which causes two problems: detail that flickers because each frame was guessed slightly differently, and missed information, because a detail that is unclear in one frame is often clearer in the next. A VSR model aligns a window of neighbouring frames, borrows the sharper samples from them, and keeps the reconstruction stable from frame to frame. The <a href="https://videoupscaler.co/video-super-resolution">video super resolution explainer</a> on VideoUpscaler shows a bicubic-versus-VSR crop of the same circuit board frame, and the difference is exactly this: the resize is a smooth blur, the VSR output has readable traces and component edges.</p>
+
+<h2>Where VSR falls short</h2>
+<ul>
+<li><strong>It cannot recover what was never captured.</strong> Out-of-focus footage, heavy motion blur and deliberate censor blur have no underlying detail to reconstruct.</li>
+<li><strong>It can hallucinate.</strong> On very low-quality input the model has to guess more, and the guesses may be plausible but wrong, especially on faces and text.</li>
+<li><strong>It costs compute.</strong> Aligning frames and running a neural network for every output frame is thousands of times heavier than a bicubic resize, which is why it runs on GPUs and why cloud services charge per second of video.</li>
+<li><strong>It needs a sensible target.</strong> Going 2× to 4× from the source resolution is the range where models are trained and tested; a 10× jump mostly produces smooth, invented texture.</li>
+</ul>
+
+<h2>How to decide</h2>
+<p>Ask where the video will be watched and what the source is. A 1080p clip going to a phone screen gains nothing from VSR; the display cannot show the extra detail. A 720p family clip going to a 4K TV gains a lot, because the TV would otherwise resize it and every edge would soften. Compressed footage with visible blocks gains even when the resolution stays the same, because the model cleans up the compression artifacts as part of the reconstruction.</p>
+<p>When the answer is a bigger screen and a 2× to 4× step, run a short test first. On VideoUpscaler a 1080P output costs 1 credit per second and new accounts start with 10 free credits, so a few seconds is enough to compare against a plain resize on the same frame. If you are specifically targeting 3840×2160 output, the <a href="https://videoupscaler.co/4k-video-upscaler">4K video upscaler</a> page covers which sources work best for that step.</p>
+
+<h2>Quick reference</h2>
+<table>
+<tr><th>Question</th><th>Resize</th><th>Super resolution</th></tr>
+<tr><td>Adds detail?</td><td>No</td><td>Yes, reconstructed</td></tr>
+<tr><td>Uses neighbouring frames?</td><td>No</td><td>Yes</td></tr>
+<tr><td>Can be wrong?</td><td>No</td><td>Occasionally</td></tr>
+<tr><td>Cost</td><td>Negligible</td><td>GPU time, billed per second</td></tr>
+<tr><td>Best for</td><td>Playback</td><td>Delivery to larger screens</td></tr>
+</table>
+</article>
+</div></main>
+<footer><div class="wrap">Video Upscaling Handbook · independent notes on AI video upscaling · <a href="sitemap.xml">Sitemap</a></div></footer>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to Batch Upscale Multiple Videos Without Wasting Credits</title>
+<meta name="description" content="A repeatable process for upscaling a folder of clips to one resolution: sort by source, test one, then run the batch. Includes a cost estimate worksheet.">
+<link rel="canonical" href="https://arkyu2077.github.io/video-upscaling-guide/batch-upscale-multiple-videos.html">
+<meta property="og:title" content="How to Batch Upscale Multiple Videos Without Wasting Credits">
+<meta property="og:description" content="A repeatable process for upscaling a folder of clips to one resolution: sort by source, test one, then run the batch. Includes a cost estimate worksheet.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://arkyu2077.github.io/video-upscaling-guide/batch-upscale-multiple-videos.html">
+<meta property="og:image" content="https://videoupscaler.co/imgs/batch/card-after.jpg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="index.html">Video Upscaling Handbook</a><nav><a href="index.html">All guides</a></nav></div></header>
+<main><div class="wrap">
+<article>
+<h1>How to Batch Upscale Multiple Videos Without Wasting Credits</h1>
+<p class="meta">Published 2026-10-20 · 714 words</p>
+<figure><img src="https://videoupscaler.co/imgs/batch/card-after.jpg" alt="Thumbnail of a clip from a batch upscaling job after processing" loading="lazy" width="1200" height="675"><figcaption>Thumbnail of a clip from a batch upscaling job after processing</figcaption></figure>
+<p>Upscaling one clip is a judgment call. Upscaling forty is a process, and if the process is wrong you pay for the mistake forty times. This guide is the checklist we use before starting a batch: group the clips, test one per group, estimate the cost, and only then run everything.</p>
+
+<h2>Step 1: Group clips by source, not by project</h2>
+<p>A wedding archive might contain phone clips at 720p, a camcorder transfer at 480i and screen recordings at 1080p. Each of those needs a different decision. Sort the folder by resolution and origin before anything else. A quick way on a Mac or PC is to view the folder in list mode with the “Dimensions” column enabled; on the command line, <code>ffprobe</code> prints width, height and duration for each file.</p>
+<p>Within a group, all clips should get the same output resolution. That keeps the batch simple and avoids the situation where two clips from the same camera end up at different sizes in the final edit.</p>
+
+<h2>Step 2: Test one clip per group</h2>
+<p>Pick the worst-looking clip in each group, trim it to 10 to 15 seconds, and run it alone. Check three things on the result: whether edges are sharp without halos, whether faces look natural, and whether anything flickers between frames. If the test fails, no amount of batching will fix it, and you have spent a few credits instead of hundreds.</p>
+<p>Keep the test output next to the original so you can refer back to it when the full batch comes out. On VideoUpscaler the per-second price is fixed per resolution (1 credit for 1080P, 2 for 2K, 3 for 4K), so the test tells you the exact cost of the full group once you know the total duration.</p>
+
+<h2>Step 3: Estimate the cost before you commit</h2>
+<p>Add up the durations in each group, multiply by the per-second rate, and write it down. A 4K pass on 20 minutes of footage is 1,200 seconds × 3 credits, or 3,600 credits. The same footage at 1080P is 1,200 credits. If the footage will only ever be watched on laptops and phones, 1080P is the right answer and the difference is a lot of credits.</p>
+<p>Two more things to check: the file size cap and the batch size. The <a href="https://videoupscaler.co/batch-video-upscaler">batch video upscaler</a> on VideoUpscaler takes up to 10 videos per run, each up to 500 MB, and each is charged separately, so a folder of 40 clips is four runs. Batch is available after any purchase; new accounts can still test single clips with the 10 free credits.</p>
+
+<h2>Step 4: Run the batch and spot-check</h2>
+<p>Upload a group, pick the resolution you decided on, and start the run. While it processes, note which files are in it so you can match outputs to inputs later. When the batch finishes, do not watch every clip end to end. Instead, open three: the first, the last, and the one you tested. If those match the test result, the rest will too, because the same model and settings were applied to every file.</p>
+
+<h2>Step 5: Name and store the outputs</h2>
+<p>Keep the original filename and append the output resolution, for example <code>clip_014_1080p.mp4</code>. Store originals and upscaled versions in separate folders rather than overwriting, because you may want to re-run a group at a different resolution later and the original is the input that gives the best result.</p>
+
+<h2>Common mistakes in batch jobs</h2>
+<ul>
+<li><strong>Mixing resolutions in one run.</strong> A 1080p source and a 360p source need different expectations and often different output targets.</li>
+<li><strong>Upscaling before trimming.</strong> Cut the dead air first; every second you remove is credits saved.</li>
+<li><strong>Upscaling the edit instead of the sources.</strong> Upscale the raw clips, then edit, so transitions and titles are rendered at full resolution rather than upscaled.</li>
+<li><strong>Skipping the test.</strong> Compression-heavy footage sometimes needs repair rather than resolution; the <a href="https://videoupscaler.co/enhance-video-quality">enhance video quality</a> page describes what the model fixes in that case, and a single test clip shows whether yours qualifies.</li>
+</ul>
+
+<h2>Worksheet</h2>
+<table>
+<tr><th>Group</th><th>Clips</th><th>Total seconds</th><th>Output</th><th>Credits</th></tr>
+<tr><td>Phone 720p</td><td>12</td><td>840</td><td>1080P</td><td>840</td></tr>
+<tr><td>Camcorder 480p</td><td>6</td><td>1,500</td><td>1080P</td><td>1,500</td></tr>
+<tr><td>Drone 1080p</td><td>4</td><td>300</td><td>4K</td><td>900</td></tr>
+</table>
+<p>Fill this in before you upload anything. If the total surprises you, change the output column before you change your mind halfway through a run.</p>
+</article>
+</div></main>
+<footer><div class="wrap">Video Upscaling Handbook · independent notes on AI video upscaling · <a href="sitemap.xml">Sitemap</a></div></footer>
+</body>
+</html>

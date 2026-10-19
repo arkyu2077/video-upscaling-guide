@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to Fix Pixelated Video: Compression Blocks, Banding and Jagged Edges</title>
+<meta name="description" content="Pixelation comes from three different causes. Learn which ones AI can repair, how to check a clip before you process it, and what to do with the result.">
+<link rel="canonical" href="https://arkyu2077.github.io/video-upscaling-guide/how-to-fix-pixelated-video.html">
+<meta property="og:title" content="How to Fix Pixelated Video: Compression Blocks, Banding and Jagged Edges">
+<meta property="og:description" content="Pixelation comes from three different causes. Learn which ones AI can repair, how to check a clip before you process it, and what to do with the result.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://arkyu2077.github.io/video-upscaling-guide/how-to-fix-pixelated-video.html">
+<meta property="og:image" content="https://videoupscaler.co/imgs/showcase/compare-4k-after.jpg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="index.html">Video Upscaling Handbook</a><nav><a href="index.html">All guides</a></nav></div></header>
+<main><div class="wrap">
+<article>
+<h1>How to Fix Pixelated Video: Compression Blocks, Banding and Jagged Edges</h1>
+<p class="meta">Published 2026-10-20 · 746 words</p>
+<figure><img src="https://videoupscaler.co/imgs/showcase/compare-4k-after.jpg" alt="Frame from a video after AI upscaling, with the blocky compression artifacts cleaned up" loading="lazy" width="1200" height="675"><figcaption>Frame from a video after AI upscaling, with the blocky compression artifacts cleaned up</figcaption></figure>
+<p>“Pixelated” is a catch-all word. People use it for a chat-app clip that arrived as blocky squares, for a sky that shows stair-stepped bands, and for a 360p recording that was stretched to fill a TV. Those are three different defects, and the fix for one does not always help the other two. This page sorts them out so you spend your time, and your credits, on footage that can actually be repaired.</p>
+
+<h2>The three kinds of pixelation</h2>
+<p><strong>Compression blocks.</strong> Every modern codec splits a frame into square blocks and spends more bits on the ones that change the most. When a clip is encoded at a low bitrate, or re-encoded several times by messaging apps, the blocks become visible as flat squares with hard seams. Faces, water and foliage show it first because they have lots of small detail per block.</p>
+<p><strong>Banding.</strong> Smooth gradients such as skies, walls and sunsets need many intermediate shades. Aggressive compression throws most of them away, so the gradient collapses into a handful of steps. It reads as stripes rather than squares.</p>
+<p><strong>Low-resolution staircase edges.</strong> A 480p or 360p frame does not have enough pixels to draw a diagonal line smoothly. When a player stretches it to a 1080p or 4K screen, every edge gets a visible staircase. Nothing in the file is broken; there simply are not enough samples.</p>
+
+<h2>What AI repair can and cannot do</h2>
+<p>A video super resolution model looks at each frame together with its neighbours, works out what the underlying object probably was, and redraws it at a higher resolution. For the three defects above, that means:</p>
+<ul>
+<li>Compression blocks: good results. The seams between blocks are predictable, and the model can rebuild the texture that was inside them.</li>
+<li>Banding: usually good, because the model regenerates the gradient instead of stretching the existing steps.</li>
+<li>Staircase edges: this is the classic upscaling case and works well, as long as the motion is not too fast.</li>
+</ul>
+<p>Two things are out of scope. Censor mosaics and blur that were added on purpose are not recoverable, because the original detail was destroyed, not merely compressed. Corrupted files that stutter or show green frames need a repair tool, not an upscaler. The <a href="https://videoupscaler.co/fix-pixelated-video">fix pixelated video</a> page on VideoUpscaler lists the same boundary: compression blocks, banding and jagged low-res edges are in, deliberate mosaics and broken files are out.</p>
+
+<h2>Check the source before you process it</h2>
+<ol>
+<li><strong>Find the earliest copy.</strong> A clip that was downloaded from a chat app, re-shared and screen-recorded has been compressed at every step. Each pass removes detail the model would otherwise use. Ask the sender for the original export if you can.</li>
+<li><strong>Pause on a still frame.</strong> If you can see square blocks, it is compression. If you can see stripes in a gradient, it is banding. If edges look like stairs but flat areas look clean, it is resolution.</li>
+<li><strong>Scrub through fast motion.</strong> Pixelation that only appears during a whip pan is normal codec behaviour and may not be worth fixing, since viewers rarely notice it in motion.</li>
+<li><strong>Note the duration.</strong> Cloud tools charge per second of video, so trimming a 10-minute recording to the 90 seconds you need is the cheapest optimisation there is.</li>
+</ol>
+
+<h2>A practical workflow</h2>
+<p>Upload the trimmed clip, pick an output resolution that matches where it will be watched, and run it. On VideoUpscaler the web app accepts MP4, MOV, MKV, WebM and M4V files up to 500 MB and returns 1080P, 2K or 4K; new accounts get 10 free credits, and 1080P costs 1 credit per second, so a short test clip is cheap. Compare the result against the original on the frames you paused on earlier. Blocks should have become texture, bands should have become gradients, and edges should be smooth rather than stair-stepped.</p>
+<p>If the result still looks soft rather than blocky, the problem was never pixelation; it was blur. That is a different repair, covered on the <a href="https://videoupscaler.co/unblur-video">unblur video</a> page, and the same checks apply: the earlier the copy and the shorter the clip, the better the outcome.</p>
+
+<h2>Common mistakes</h2>
+<ul>
+<li>Upscaling a screen recording of a video instead of the video itself.</li>
+<li>Picking 4K for a clip that will only ever be watched on a phone, and paying three times the credits for pixels nobody sees.</li>
+<li>Expecting a mosaic or a face-blur to come back. It will not, on any tool.</li>
+<li>Judging the result at 25% zoom in an editor. Watch it full screen on the target device.</li>
+</ul>
+</article>
+</div></main>
+<footer><div class="wrap">Video Upscaling Handbook · independent notes on AI video upscaling · <a href="sitemap.xml">Sitemap</a></div></footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Video Upscaling Handbook: practical AI video upscaling guides</title>
+<meta name="description" content="Vendor-neutral guides on fixing pixelated video, super resolution vs resizing, batch upscaling, local Mac upscaling and API automation.">
+<link rel="canonical" href="https://arkyu2077.github.io/video-upscaling-guide/">
+<meta property="og:title" content="Video Upscaling Handbook: practical AI video upscaling guides">
+<meta property="og:description" content="Vendor-neutral guides on fixing pixelated video, super resolution vs resizing, batch upscaling, local Mac upscaling and API automation.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arkyu2077.github.io/video-upscaling-guide/">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="index.html">Video Upscaling Handbook</a><nav><a href="index.html">All guides</a></nav></div></header>
+<main><div class="wrap">
+<h1>Video Upscaling Handbook</h1>
+<p class="lead">Practical, vendor-neutral notes on AI video upscaling: how to diagnose a bad clip, what super resolution can and cannot do, and how to run the job at scale. Written for people who have footage to fix, not for people selling software.</p>
+<ul class="cards"><li><a href="how-to-fix-pixelated-video.html">How to Fix Pixelated Video: Compression Blocks, Banding and Jagged Edges</a><p>Pixelation comes from three different causes. Learn which ones AI can repair, how to check a clip before you process it, and what to do with the result.</p></li><li><a href="video-super-resolution-vs-resizing.html">Video Super Resolution vs Resizing: What Actually Changes in the Frame</a><p>Resizing and super resolution both produce a bigger frame, but only one adds detail. A plain-language explanation of how VSR uses neighbouring frames, and when it is worth it.</p></li><li><a href="batch-upscale-multiple-videos.html">How to Batch Upscale Multiple Videos Without Wasting Credits</a><p>A repeatable process for upscaling a folder of clips to one resolution: sort by source, test one, then run the batch. Includes a cost estimate worksheet.</p></li><li><a href="upscale-video-on-mac-offline.html">Upscaling Video on a Mac Without Uploading It: When Local Beats Cloud</a><p>Private footage, very long files and slow connections are the cases where on-device upscaling wins. What to expect from an Apple Silicon Mac, and when the cloud is still the better choice.</p></li><li><a href="automate-video-upscaling-api.html">Automating Video Upscaling With a REST API: Submit, Poll, Download</a><p>The pattern every video processing API shares, with idempotency keys, polling intervals and failure handling, illustrated with the VideoUpscaler API and its MCP server.</p></li></ul>
+<h2>How these guides are written</h2>
+<p>Each guide starts from a concrete problem (blocks in a chat clip, forty wedding files, a two-hour recording that may not leave the building) and works through the decision before the tool. Where a specific product's numbers are quoted, they are taken from that product's own documentation at the time of writing. Nothing here is sponsored.</p>
+
+</div></main>
+<footer><div class="wrap">Video Upscaling Handbook · independent notes on AI video upscaling · <a href="sitemap.xml">Sitemap</a></div></footer>
+</body>
+</html>
