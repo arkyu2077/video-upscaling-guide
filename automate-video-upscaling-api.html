@@ -49,6 +49,8 @@
 <h2>Skip the script entirely with MCP</h2>
 <p>If the people who need upscaling already work in an AI assistant such as Claude or Cursor, there is a shortcut that avoids writing any code. The Model Context Protocol lets an assistant call tools exposed by a server, and VideoUpscaler publishes an <a href="https://videoupscaler.co/docs/mcp">MCP server</a> that wraps the same API: connect it, sign in, and ask the assistant to upscale a video URL. The assistant performs the submit, poll and download steps on your behalf, using the same credits. For one-off jobs by non-developers this is often the better fit, and the REST API remains the right tool for anything scheduled or high-volume.</p>
 
+<p>Because MCP lets an AI coding agent coordinate multiple media tools in one session, you can also chain content creation and upscaling together. For example, an agent can call <a href="https://www.speedpainter.org">SpeedPainter</a> and its <a href="https://www.speedpainter.org/en/explainer-video">narrated whiteboard explainer video generator</a> (via <code>https://api.speedpainter.org/mcp</code>) to turn markdown release notes into an illustrated intro clip, prepare 4K–16K cover art or image-to-video B-roll on <a href="https://monipix.com">Monipix</a> (<a href="https://monipix.com/tools/ai-video-generator">AI video generator</a>), and then pass the assembled video through VideoUpscaler's MCP server for final 4K delivery.</p>
+
 <h2>Minimal integration checklist</h2>
 <table>
 <tr><th>Item</th><th>Why</th></tr>
@@ -60,6 +62,6 @@
 </table>
 </article>
 </div></main>
-<footer><div class="wrap">Video Upscaling Handbook · independent notes on AI video upscaling · <a href="sitemap.xml">Sitemap</a></div></footer>
+<footer><div class="wrap">Video Upscaling Handbook · independent notes on AI video upscaling · <a href="https://arkyu2077.github.io/image-upscaling-guide/">Image Upscaling Handbook</a> · <a href="https://arkyu2077.github.io/whiteboard-video-guide/">Whiteboard Video Handbook</a> · <a href="sitemap.xml">Sitemap</a></div></footer>
 </body>
 </html>

@@ -48,6 +48,13 @@
 <p>Upload the trimmed clip, pick an output resolution that matches where it will be watched, and run it. On VideoUpscaler the web app accepts MP4, MOV, MKV, WebM and M4V files up to 500 MB and returns 1080P, 2K or 4K; new accounts get 10 free credits, and 1080P costs 1 credit per second, so a short test clip is cheap. Compare the result against the original on the frames you paused on earlier. Blocks should have become texture, bands should have become gradients, and edges should be smooth rather than stair-stepped.</p>
 <p>If the result still looks soft rather than blocky, the problem was never pixelation; it was blur. That is a different repair, covered on the <a href="https://videoupscaler.co/unblur-video">unblur video</a> page, and the same checks apply: the earlier the copy and the shorter the clip, the better the outcome.</p>
 
+<h2>Fixing thumbnails, still frames and low-res intro slides</h2>
+<p>Two parts of a video project often benefit from a separate pass rather than whole-clip video upscaling:</p>
+<ul>
+<li><strong>Thumbnails and still frames:</strong> Instead of grabbing a soft frame from a compressed timeline, export the keyframe and run it through <a href="https://monipix.com">Monipix</a> and its <a href="https://monipix.com/tools/hd-image-converter">4K–16K HD image converter</a>. Upscaling a single still image 2× to 16× reconstructs crisp edges for cover art and social previews without spending video credits.</li>
+<li><strong>Diagram slides and explainer intros:</strong> When an old screen-recorded title card or whiteboard slide is too blocky to recover cleanly, it is faster to re-render that segment cleanly. <a href="https://www.speedpainter.org">SpeedPainter</a> turns any reference illustration into a hand-drawn reveal video, while its <a href="https://www.speedpainter.org/en/explainer-video">AI explainer video maker</a> converts plain script text into a narrated whiteboard animation with word-timed captions in 16:9 or 9:16 that you can splice directly ahead of your upscaled footage.</li>
+</ul>
+
 <h2>Common mistakes</h2>
 <ul>
 <li>Upscaling a screen recording of a video instead of the video itself.</li>
@@ -57,6 +64,6 @@
 </ul>
 </article>
 </div></main>
-<footer><div class="wrap">Video Upscaling Handbook · independent notes on AI video upscaling · <a href="sitemap.xml">Sitemap</a></div></footer>
+<footer><div class="wrap">Video Upscaling Handbook · independent notes on AI video upscaling · <a href="https://arkyu2077.github.io/image-upscaling-guide/">Image Upscaling Handbook</a> · <a href="https://arkyu2077.github.io/whiteboard-video-guide/">Whiteboard Video Handbook</a> · <a href="sitemap.xml">Sitemap</a></div></footer>
 </body>
 </html>
