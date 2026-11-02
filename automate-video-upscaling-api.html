@@ -51,6 +51,9 @@
 
 <p>Because MCP lets an AI coding agent coordinate multiple media tools in one session, you can also chain content creation and upscaling together. For example, an agent can call <a href="https://www.speedpainter.org">SpeedPainter</a> and its <a href="https://www.speedpainter.org/en/explainer-video">narrated whiteboard explainer video generator</a> (via <code>https://api.speedpainter.org/mcp</code>) to turn markdown release notes into an illustrated intro clip, prepare 4K–16K cover art or image-to-video B-roll on <a href="https://monipix.com">Monipix</a> (<a href="https://monipix.com/tools/ai-video-generator">AI video generator</a>), and then pass the assembled video through VideoUpscaler's MCP server for final 4K delivery.</p>
 
+<h2>No-code workflow automation: n8n, Make.com and Zapier</h2>
+<p>If your team orchestrates media pipelines in a visual builder rather than a custom Python or Node script, see our dedicated guide on <a href="n8n-video-upscaler-workflow-automation.html">automating 4K video upscaling in n8n, Make &amp; Zapier</a>. VideoUpscaler provides ready-to-import templates on its <a href="https://videoupscaler.co/integrations">workflow integrations hub</a>, complete <a href="https://videoupscaler.co/docs/workflows">workflow automation documentation</a>, server-side long-polling (<code>GET /api/v1/tasks/{id}?wait=45</code>), async <code>webhook_url</code> callbacks, and the open-source <a href="https://github.com/arkyu2077/n8n-nodes-videoupscaler"><code>n8n-nodes-videoupscaler</code></a> community node.</p>
+
 <h2>Minimal integration checklist</h2>
 <table>
 <tr><th>Item</th><th>Why</th></tr>
